@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passcode Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* Geometric design */
+        .geometric {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.2);
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            top: 20%;
+            left: 10%;
+            z-index: 0;
+        }
+
+        .geometric:nth-child(2) {
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .geometric:nth-child(3) {
+            top: 10%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome to THE 8H PROJECT</h1>
+    <input type="password" id="password" placeholder="Enter passcode">
+    <button class="submit-btn" onclick="checkPassword()">Submit</button>
+    <p class="error-message" id="error-message">Incorrect passcode. Please try again.</p>
+</div>
+
+<!-- Geometric designs -->
+<div class="geometric"></div>
+<div class="geometric"></div>
+<div class="geometric"></div>
+
+<script>
+    function checkPassword() {
+        const passwordInput = document.getElementById('password').value;
+        const errorMessage = document.getElementById('error-message');
+
+        if (passwordInput === 'DeveloperAksh7849') {
+            window.location.href = 'file:///C:/Users/varsh/Downloads/Untitled-5.html';
+        } else if (passwordInput === 'USER8H') {
+            window.location.href = 'file:///C:/Users/varsh/Downloads/Untitled-2.html';
+        } else {
+            errorMessage.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>

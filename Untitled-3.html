@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Uploaded Images</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .image-item {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Uploaded Images</h1>
+    <div id="image-gallery"></div>
+</div>
+
+<script>
+    function displayImages() {
+        const uploadedImages = JSON.parse(localStorage.getItem('uploadedImages')) || [];
+        const gallery = document.getElementById('image-gallery');
+
+        if (uploadedImages.length === 0) {
+            gallery.innerHTML = '<p>No images uploaded yet.</p>';
+            return;
+        }
+
+        uploadedImages.forEach(image => {
+            const imageItem = document.createElement('div');
+            imageItem.classList.add('image-item');
+            imageItem.innerHTML = `
+                <h2>${image.title}</h2>
+                <img src="${image.url}" alt="${image.title}">
+                <p>Uploaded on: ${image.timestamp}</p>
+            `;
+            gallery.appendChild(imageItem);
+        });
+    }
+
+    // Call the function to display images on page load
+    displayImages();
+</script>
+
+</body>
+</html>

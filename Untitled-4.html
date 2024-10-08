@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Upload Image</h1>
+    <label for="image-title">Image Title</label>
+    <input type="text" id="image-title" placeholder="Enter image title">
+
+    <label for="image-file">Select Image</label>
+    <input type="file" id="image-file">
+
+    <button class="submit-btn" onclick="uploadImage()">Upload</button>
+</div>
+
+<script>
+    function uploadImage() {
+        const imageTitle = document.getElementById('image-title').value;
+        const imageFile = document.getElementById('image-file').files[0];
+
+        if (!imageTitle || !imageFile) {
+            alert('Please provide both an image and a title');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const imageUrl = e.target.result; // Base64 encoded image data
+            const uploadedImages = JSON.parse(localStorage.getItem('uploadedImages')) || [];
+            const timestamp = new Date().toLocaleString();
+
+            uploadedImages.push({
+                url: imageUrl,
+                title: imageTitle,
+                timestamp: timestamp
+            });
+
+            localStorage.setItem('uploadedImages', JSON.stringify(uploadedImages));
+            alert('Image uploaded successfully!');
+
+            // Redirect to the view page after uploading
+            window.location.href = 'file:///C:/Users/varsh/Downloads/Untitled-3.html';
+        };
+
+        reader.readAsDataURL(imageFile); // Convert image to Base64
+    }
+</script>
+
+</body>
+</html>

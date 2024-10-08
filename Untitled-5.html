@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Screen Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            display: flex;
+        }
+        .split {
+            flex: 1;
+            height: 100vh;
+            cursor: pointer;
+        }
+        .left {
+            background-color: #3498db;
+        }
+        .right {
+            background-color: #e74c3c;
+        }
+        .split:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="split left" onclick="window.location.href='file:///C:/Users/varsh/Downloads/Untitled-4.html';"></div>
+    <div class="split right" onclick="window.location.href='https://www.youtube.com/watch?v=AX7t8ZwroHQ';"></div>
+</body>
+</html>

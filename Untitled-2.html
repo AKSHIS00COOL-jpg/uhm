@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passcode Page</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+
+        .red {
+            background-color: #e74c3c; /* Red background */
+        }
+
+        .blue {
+            background-color: #3498db; /* Blue background */
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        input[type="password"] {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 80%;
+        }
+
+        .submit-btn {
+            padding: 12px;
+            background-color: white;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 80%;
+        }
+
+        .submit-btn:hover {
+            background-color: #ddd;
+        }
+
+        .link-btn {
+            padding: 12px;
+            background-color: white;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 80%;
+            margin-top: 10px;
+        }
+
+        .link-btn:hover {
+            background-color: #ddd;
+        }
+
+        .error-message {
+            color: yellow;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            input[type="password"],
+            .submit-btn,
+            .link-btn {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container red">
+    <div>
+        <h1>Notes and HW answers</h1>
+        <input type="password" id="password" placeholder="Password plez">
+        <button class="submit-btn" onclick="checkPassword()">Submit</button>
+        <p class="error-message" id="error-message">Incorrect passcode. Please try again.</p>
+    </div>
+</div>
+
+<div class="container blue">
+    <div>
+        <h1>Play Kabhi_Kabhi_Aditi_Zindagi_</h1>
+        <button class="link-btn" onclick="playSound()">Play MP3</button>
+    </div>
+</div>
+
+<script>
+    function checkPassword() {
+        const passwordInput = document.getElementById('password').value;
+        const errorMessage = document.getElementById('error-message');
+
+        // Check passcodes
+        if (passwordInput === 'DYNMO_CHAMPION_HACKED') {
+            window.location.href = 'file:///C:/Users/varsh/Downloads/Untitled-5.html';
+        } else if (passwordInput === 'USER8H') {
+            window.location.href = 'file:///C:/Users/varsh/Downloads/Untitled-3.html';
+        } else {
+            errorMessage.style.display = 'block';
+        }
+    }
+
+    function playSound() {
+        const audio = new Audio('file:///C:/Users/varsh/Downloads/Kabhi_Kabhi_Aditi_Zindagi_(Jaane_Tu___Ya_Jaane_Na)_128_Kbps.mp3'); // Replace with your audio file path
+        audio.play();
+    }
+</script>
+
+</body>
+</html>
